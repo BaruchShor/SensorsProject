@@ -1,150 +1,145 @@
-# 
 
+# Agent Intelligence System
+
+## Overview
+
+This system simulates a structure for managing intelligence agents and their sensors. It demonstrates object-oriented principles such as interfaces, inheritance, and polymorphism.
+
+---
+
+## 📁 Project Structure
+
+```
 /AgentSystem
 │
-├── Interfaces
-│   ├── IAgent.cs
-│   ├── ISeniorAgent.cs
-│   └── ISensor.cs
+├── Interfaces/
+│   ├── IAgent.cs              # Base interface for all agents
+│   └── ISeniorAgent.cs        # Extended interface for senior agents
 │
-├── Models
-│   ├── Agent.cs
-│   ├── SeniorAgent.cs
-│   └── Sensor.cs
+├── Models/
+│   ├── Agent.cs               # Basic agent class
+│   ├── ComplexAgent.cs        # Inherits from Agent, handles more complex logic
+│   ├── ISensor.cs             # Interface for all sensors
+│   └── Sensor.cs              # Concrete implementation of a basic sensor
 │
-├── Program.cs
-├── AgentSystem.csproj
-└── README.md
-
-# Agent System
-
-A simulation system for agents and their sensor equipment, distinguishing between regular and senior agents.
+└── Program.cs                 # Entry point for testing
+```
 
 ---
 
-## 📌 Overview
-
-This system models agents and their interaction with a set of sensors. It defines two levels of agents (regular and senior) and supports activating sensors based on their type and assignment.
-
----
-
-## 🔧 Interfaces
+## 🧠 Interfaces
 
 ### `IAgent`
-Defines the base interface for all agents.
-
 ```csharp
 public interface IAgent
 {
-    string Name { get; set; }
-    string Id { get; set; }
-    List<ISensor> Sensors { get; set; }
-
-    void Activate(string sensorType);
+    void Activate();
 }
+```
+- **Purpose**: Base behavior for all agent types.
+- **Method**: `Activate` - triggers the activation logic based on sensor data.
 
-ISeniorAgent
-Extends IAgent for senior agents with additional capabilities.
-
+### `ISeniorAgent`
+```csharp
 public interface ISeniorAgent : IAgent
 {
-    void AnalyzeSensorData();
+    void AnalyzeAdvancedData();
 }
+```
+- **Purpose**: Adds advanced behavior for senior agents.
+- **Method**: `AnalyzeAdvancedData` - extra logic for complex missions.
 
-ISensor
-Describes a sensor with key metadata.
+---
 
-public interface ISensor
-{
-    string Name { get; set; }
-    string Type { get; set; }
-    string Assignment { get; set; }
-}
+## 🧍‍♂️ Agent Classes
 
-Agent
-A base class representing a field agent
-
+### `Agent`
+```csharp
 public class Agent : IAgent
 {
     public string Name { get; set; }
     public string Id { get; set; }
     public List<ISensor> Sensors { get; set; }
 
-    public Agent(string name, string id, List<ISensor> sensors)
+    public void Activate()
     {
-        Name = name;
-        Id = id;
-        Sensors = sensors;
-    }
-
-    public void Activate(string sensorType)
-    {
-        foreach (var sensor in Sensors)
-        {
-            if (sensor.Type == sensorType)
-            {
-                Console.WriteLine($"Activating sensor: {sensor.Name}");
-            }
-        }
+        // Iterates over sensors and checks for trigger condition
     }
 }
+```
+- **Purpose**: Represents a basic field agent with sensors.
+- **Key Behavior**: Loops through each sensor and checks for activation logic.
 
-SeniorAgent
-An advanced agent with broader capabilities.
-
-public class SeniorAgent : Agent, ISeniorAgent
+### `ComplexAgent`
+```csharp
+public class ComplexAgent : Agent, ISeniorAgent
 {
-    public SeniorAgent(string name, string id, List<ISensor> sensors)
-        : base(name, id, sensors) { }
-
-    public void AnalyzeSensorData()
+    public void AnalyzeAdvancedData()
     {
-        Console.WriteLine("Analyzing advanced sensor data...");
+        // Extra intelligence analysis for senior agents
     }
 }
+```
+- **Purpose**: Represents a senior agent with more sophisticated capabilities.
 
-Sensor
-A basic implementation of a sensor.
+---
 
+## 🎛️ Sensor System
+
+### `ISensor`
+```csharp
+public interface ISensor
+{
+    string Name { get; set; }
+    string Type { get; set; }
+    string AssignedTo { get; set; }
+}
+```
+- **Purpose**: Abstract sensor structure.
+
+### `Sensor`
+```csharp
 public class Sensor : ISensor
 {
     public string Name { get; set; }
     public string Type { get; set; }
-    public string Assignment { get; set; }
-
-    public Sensor(string name, string type, string assignment)
-    {
-        Name = name;
-        Type = type;
-        Assignment = assignment;
-    }
+    public string AssignedTo { get; set; }
 }
+```
+- **Purpose**: Concrete sensor implementation used by agents.
 
-🚀 How to Use
-Create agents and sensors.
+---
 
-Assign sensors to agents.
+## 🔁 Flowchart (Textual)
 
-Use Activate() method to trigger specific sensor types.
+```
+START
+  │
+  ├─> Create Agent (or ComplexAgent)
+  │
+  ├─> Assign Sensor(s)
+  │
+  ├─> Call Activate()
+  │     ├─> Iterate Sensors
+  │     └─> Check Sensor Type
+  │
+  └─> If ComplexAgent → AnalyzeAdvancedData()
+         └─> Extra processing logic
+```
 
-Senior agents can additionally analyze sensor data.
+---
 
-var sensors = new List<ISensor>
-{
-    new Sensor("ThermalCam", "thermal", "surveillance"),
-    new Sensor("AudioMic", "audio", "monitoring")
-};
+## 🧪 Example Usage
+```csharp
+Agent agent = new Agent { Name = "John", Id = "007", Sensors = new List<ISensor>() };
+agent.Sensors.Add(new Sensor { Name = "Thermal", Type = "Heat", AssignedTo = "007" });
+agent.Activate();
 
-IAgent agent = new Agent("John Doe", "A001", sensors);
-agent.Activate("thermal");
+ComplexAgent senior = new ComplexAgent { Name = "Jane", Id = "001", Sensors = new List<ISensor>() };
+senior.AnalyzeAdvancedData();
+```
 
-ISeniorAgent senior = new SeniorAgent("Jane Smith", "A002", sensors);
-senior.AnalyzeSensorData();
+---
 
-
-📁 Folder Structure Summary
-Interfaces: Contains all interface definitions.
-
-Models: Contains implementation classes for agents and sensors.
-
-Program.cs: Entry point to test or run the system.
+## 📝 License
+This project is provided under the MIT License.
