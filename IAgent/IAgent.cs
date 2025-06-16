@@ -8,10 +8,13 @@ namespace SensorsProject
 {
     internal class IAgent
     {
-        string Name { get; set; }
-        string Type { get; set; }
-        Dictionary<Sensor> SensorsDict { get; set; }
+        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Type { get; set; }
+        public List<Sensor> TypesOfWeaknesses { get; set; }
+        public Dictionary<Sensor, int> SensorsDict { get; set; }
 
-        void Activate() { }
+        public bool Activate() { return false; }
+        public void ShowAgent() { }
     }
 }

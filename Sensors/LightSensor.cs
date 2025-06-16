@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Agent : IAgent
+    internal class LightSensor
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public string Type { get; set; }
     }
 }
