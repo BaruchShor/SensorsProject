@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SensorsProject.Sensors
+namespace SensorsProject
 {
-    internal class SignalSensor
+    internal class SignalSensor : Sensor
     {
     }
 }

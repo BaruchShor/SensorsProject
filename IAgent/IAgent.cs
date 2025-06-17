@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class IAgent
+    interface IAgent
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public string Type { get; set; }
-        public List<Sensor> TypesOfWeaknesses { get; set; }
-        public Dictionary<Sensor, int> SensorsDict { get; set; }
+        string Name { get; set; }
+        int Id { get; set; }
+        string Type { get; set; }
+        List<Sensor> TypesOfWeaknesses { get; set; }
+        Dictionary<Sensor, int> SensorsDict { get; set; }
 
-        public bool Activate() { return false; }
-        public void ShowAgent() { }
+        bool Activate();
+        void ShowAgent();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class ISensor
+    interface ISensor
     {
         string Name { get; set; }
         int Id { get; set; }

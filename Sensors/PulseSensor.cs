@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class PulseSensor
+    internal class PulseSensor : Sensor
     {
     }
 }

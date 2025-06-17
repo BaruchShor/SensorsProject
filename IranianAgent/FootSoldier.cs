@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class FootSoldier
+    internal class FootSoldier : Agent
     {
+        public string Name { get; set; }
+        public FootSoldier()
+        {
+
+        }
     }
 }

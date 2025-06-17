@@ -4,9 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SensorsProject.SensorCoupler
+namespace SensorsProject
 {
-    internal class SensorCoupler
+    internal class SensorCoupler : SensorsType
     {
+        public Dictionary<SensorsTypes,Sensor> SensorList { get; set; }
+        public SensorCoupler()
+        {
+            this.SensorList = new Dictionary<SensorsTypes, Sensor>
+            {
+                {SensorsTypes.AudioSensor, new AudioSensor()},
+                {SensorsTypes.LightSensor, new LightSensor()},
+                {SensorsTypes.MagneticSensor,new MagneticSensor()},
+                {SensorsTypes.MotionSensor, new MotionSensor()},
+                {SensorsTypes.PulseSensor, new PulseSensor()},
+                {SensorsTypes.SignalSensor, new SignalSensor()},
+                {SensorsTypes.ThermalSensor, new ThermalSensor()},
+            };
+        }
+
+        public void SensorsCoupler()
+        {
+            foreach()
+        }
     }
 }

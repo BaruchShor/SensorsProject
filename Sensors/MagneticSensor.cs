@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class MagneticSensor
+    internal class MagneticSensor : Sensor
     {
     }
 }

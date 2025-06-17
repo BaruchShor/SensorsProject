@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Agent : IAgent
+    internal class Agent
     {
         public string Name { get; set; }
         public int Id { get; set; }
@@ -48,6 +48,11 @@ namespace SensorsProject
                 }
             }
             return this.SensorsDict;
+        }
+
+        public void ShowAgent()
+        {
+
         }
     }
 }

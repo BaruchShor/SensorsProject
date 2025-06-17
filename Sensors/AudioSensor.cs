@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class AudioSensor
+    internal class AudioSensor : Sensor
     {
+        public AudioSensor()
+        {
+
+        }
     }
 }
