@@ -6,24 +6,47 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Sensor : ISensor
+    internal class Sensor : SensorsType
     {
-        public string Name { get; set;}
-        public int Id { get; set; }
-        public string Type { get; set; }
+        public string CodeName { get; set;}
+        public SensorsTypes Type { get; set; }
 
-        public Sensor(string name, int id, string Type)
+        public Sensor(SensorsTypes type)
         {
-            this.Name = name;
-            this.Id = id;
-            this.Type = Type;
+            this.CodeName = CreateCodeName();
+            this.Type = type;
+        }
+
+        public string CreateCodeName()
+        {
+            Random random = new Random();
+            int randomNum = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    randomNum = random.Next(65, 90);
+                    this.CodeName += (char)randomNum;
+                }
+                else
+                {
+                    randomNum = random.Next(97, 122);
+                    this.CodeName += (char)randomNum;
+                }
+            }
+            return this.CodeName;
+        }
+
+        public void Activate()
+        {
+
         }
 
         public void ShoeSensor()
         {
             Console.WriteLine($"===============================\n" +
-                              $"Sensor name ::: {this.Name}.\n" +
-                              $"Sensor Id   ::: {this.Id}.\n" +
+                              $"Sensor name ::: {this.CodeName}.\n" +
                               $"Sensor Type ::: {this.Type}\n" +
                               $"===============================\n");
         }

@@ -8,5 +8,9 @@ namespace SensorsProject
 {
     internal class ThermalSensor : Sensor
     {
+        public ThermalSensor() : base(SensorsTypes.ThermalSensor)
+        {
+
+        }
     }
 }

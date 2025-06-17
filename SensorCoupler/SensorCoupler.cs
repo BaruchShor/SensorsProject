@@ -8,24 +8,27 @@ namespace SensorsProject
 {
     internal class SensorCoupler : SensorsType
     {
-        public Dictionary<SensorsTypes,Sensor> SensorList { get; set; }
-        public SensorCoupler()
+        public SensorsTypes[] SensorsTypeList { get; set; }
+        public Sensor[] SensorsAgentList { get; set; }
+        public int SensorsListLength { get; set; }
+        public Random randon { get; set; }
+        public SensorCoupler(int listLength)
         {
-            this.SensorList = new Dictionary<SensorsTypes, Sensor>
-            {
-                {SensorsTypes.AudioSensor, new AudioSensor()},
-                {SensorsTypes.LightSensor, new LightSensor()},
-                {SensorsTypes.MagneticSensor,new MagneticSensor()},
-                {SensorsTypes.MotionSensor, new MotionSensor()},
-                {SensorsTypes.PulseSensor, new PulseSensor()},
-                {SensorsTypes.SignalSensor, new SignalSensor()},
-                {SensorsTypes.ThermalSensor, new ThermalSensor()},
-            };
+            this.SensorsListLength = listLength;
+            this.randon = new Random();
+            this.SensorsTypeList = (SensorsTypes[])Enum.GetValues(typeof(SensorsTypes));
+            this.SensorsAgentList = new Sensor[this.SensorsListLength];
         }
 
-        public void SensorsCoupler()
+        public Sensor[] SensorsCoupler()
         {
-            foreach()
+            SensorsTypes type;
+            for(int i = 0; i < this.SensorsListLength; i++)
+            {
+                type = this.SensorsTypeList[randon.Next(this.SensorsTypeList.Length)];
+                this.SensorsAgentList[i] = SensorsDict[type];
+            }
+            return this.SensorsAgentList;
         }
     }
 }
