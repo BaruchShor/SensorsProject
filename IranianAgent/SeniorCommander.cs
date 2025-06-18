@@ -8,5 +8,16 @@ namespace SensorsProject
 {
     internal class SeniorCommander : Agent
     {
+        public string Name { get; set; }
+        public int Id { get; set; }
+
+        private static IranianAgentsTypes Type = IranianAgentsTypes.SeniorCommander;
+
+        private static int NumWeaknesses = 6;
+        public SeniorCommander(string name, int id) : base(name, id, Type, NumWeaknesses)
+        {
+            this.Name = name;
+            this.Id = id;
+        }
     }
 }

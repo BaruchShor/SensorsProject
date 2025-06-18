@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Agent
+    internal class Agent : IranianAgentsType
     {
         public string Name { get; set; }
         public int Id { get; set; }
-        public string Type { get; set; }
+        public IranianAgentsTypes Type { get; set; }
         public int NumWeaknesses { get; set; }
         public SensorCoupler SticksSensors { get; set; }
         public Sensor[] TypesOfWeaknesses { get; set; }
         public Sensor[] AttachingSensors { get; set; }
         public Dictionary<Sensor,int> SensorsDict { get; set;} 
 
-        public Agent(string name, int id, string type, int numWeaknesses)
+        public Agent(string name, int id, IranianAgentsTypes type, int numWeaknesses)
         {
             this.Name = name;
             this.Id = id;

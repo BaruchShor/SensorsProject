@@ -8,7 +8,8 @@ namespace SensorsProject
 {
     internal class MagneticSensor : Sensor
     {
-        public MagneticSensor() : base(SensorsTypes.MagneticSensor)
+        private static SensorsTypes Type = SensorsTypes.MagneticSensor;
+        public MagneticSensor() : base(Type)
         {
 
         }

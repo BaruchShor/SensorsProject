@@ -8,7 +8,8 @@ namespace SensorsProject
 {
     internal class PulseSensor : Sensor
     {
-        public PulseSensor() : base(SensorsTypes.PulseSensor)
+        private static SensorsTypes Type = SensorsTypes.PulseSensor;
+        public PulseSensor() : base(Type)
         {
 
         }
