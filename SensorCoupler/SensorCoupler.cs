@@ -26,7 +26,7 @@ namespace SensorsProject
             for(int i = 0; i < this.SensorsListLength; i++)
             {
                 type = this.SensorsTypeList[randon.Next(this.SensorsTypeList.Length)];
-                this.SensorsAgentList[i] = this.SensorsDict[type]();
+                this.SensorsAgentList[i] = this.SensorsCreaterDict[type]();
             }
             return this.SensorsAgentList;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SensorsProject.MannageIranianAgent
+namespace SensorsProject
 {
     internal class MannageIranianAgent : IranianAgentsType
     {
@@ -26,13 +26,20 @@ namespace SensorsProject.MannageIranianAgent
 
         public Agent CreateAgent()
         {
-            Console.WriteLine();
-            do
+            Console.WriteLine($"Please select the agent level for the investigation.");
+            try
             {
-                Console.WriteLine("^^^ Please enter your choice from the options. ^^^\n");
-                GetChoice();
+                do
+                {
+                    Console.WriteLine("^^^ Please enter your choice from the options. ^^^\n");
+                    GetChoice();
 
-            } while (!this.KeyTypesWords.ContainsKey(this.Choice));
+                } while (!this.KeyTypesWords.ContainsKey(this.Choice));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error! {ex.GetType()} !!!! {ex.Message}");
+            }
 
             this.NewAgent = this.AgentsCreaterDict[this.KeyTypesWords[this.Choice]](this.Name, this.Id);
 

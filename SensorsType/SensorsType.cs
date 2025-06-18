@@ -19,7 +19,7 @@ namespace SensorsProject
             ThermalSensor
         }
 
-        public Dictionary<SensorsTypes, Func<Sensor>> SensorsDict = new Dictionary<SensorsTypes, Func<Sensor>>
+        public Dictionary<SensorsTypes, Func<Sensor>> SensorsCreaterDict = new Dictionary<SensorsTypes, Func<Sensor>>
         {
             { SensorsTypes.AudioSensor,() => new AudioSensor()},
             { SensorsTypes.LightSensor,() => new LightSensor()},
@@ -30,15 +30,15 @@ namespace SensorsProject
             { SensorsTypes.ThermalSensor,() => new ThermalSensor()},
         };
 
-        public Dictionary<string, SensorsTypes> KeyTypesWords = new Dictionary<string, SensorsTypes>
+        public Dictionary<int, SensorsTypes> KeyTypesWords = new Dictionary<int, SensorsTypes>
         {
-            { "audio", SensorsTypes.AudioSensor},
-            { "thermal" , SensorsTypes.ThermalSensor},
-            { "light", SensorsTypes.LightSensor},
-            { "magnetic", SensorsTypes.MagneticSensor},
-            { "motion", SensorsTypes.MotionSensor},
-            { "pulse", SensorsTypes.PulseSensor},
-            { "signal", SensorsTypes.SignalSensor}
+            { 1, SensorsTypes.AudioSensor},
+            { 2 , SensorsTypes.ThermalSensor},
+            { 3, SensorsTypes.LightSensor},
+            { 4, SensorsTypes.MagneticSensor},
+            { 5, SensorsTypes.MotionSensor},
+            { 6, SensorsTypes.PulseSensor},
+            { 7, SensorsTypes.SignalSensor}
         };
     }
 }

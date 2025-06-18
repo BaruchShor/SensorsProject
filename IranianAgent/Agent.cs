@@ -28,12 +28,15 @@ namespace SensorsProject
             BuildSensorDict();
             this.AttachingSensors = new Sensor[this.TypesOfWeaknesses.Length];
         }
-        public bool Activate(Sensor sensor)
+        public bool ComparingSensors(Sensor sensor)
         {
-            if (this.SensorsDict.ContainsKey(sensor) && this.SensorsDict[sensor] != 0)
+            if (sensor.IsActivate)
             {
-                this.SensorsDict[sensor] -= 1;
-                return true;
+                if (this.SensorsDict.ContainsKey(sensor) && this.SensorsDict[sensor] != 0)
+                {
+                    this.SensorsDict[sensor] -= 1;
+                    return true;
+                }
             }
             return false;
         }

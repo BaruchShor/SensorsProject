@@ -9,6 +9,7 @@ namespace SensorsProject
     internal class Sensor : SensorsType
     {
         public string CodeName { get; set;}
+        public bool IsActivate { get; set; }
         public SensorsTypes Type { get; set; }
 
         public Sensor(SensorsTypes type)
@@ -38,9 +39,9 @@ namespace SensorsProject
             return this.CodeName;
         }
 
-        public void Activate()
+        public bool Activate()
         {
-
+            return this.IsActivate = true;
         }
 
         public void ShoeSensor()
