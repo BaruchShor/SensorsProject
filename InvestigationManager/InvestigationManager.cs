@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace SensorsProject.InvestigationManager
 {
-    internal class InvestigationManager
+    internal class InvestigationManager : SensorsType
     {
-        public InvestigationManager()
+        public Sensor sensor { get; set; }
+        public SensorsTypes TypeCoose { get; set; }
+        public string UserInput { get; set; }
+        public InvestigationManager(string agentName)
         {
-
         }
 
         public void Researcher()
         {
+            Console.WriteLine($"!!! Please enter a sensor type. !!!");
+            try
+            {
+                this.UserInput = Console.ReadLine().ToLower();
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Error! {ex.GetType()} !!!! {ex.Message}");
+            }
+
 
         }
     }
