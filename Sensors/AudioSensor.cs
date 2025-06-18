@@ -8,7 +8,7 @@ namespace SensorsProject
 {
     internal class AudioSensor : Sensor
     {
-        public AudioSensor()
+        public AudioSensor() : base(SensorsTypes.AudioSensor)
         {
 
         }

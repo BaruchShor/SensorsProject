@@ -10,6 +10,7 @@ namespace SensorsProject
     {
         public string Name { get; set; }
         public int Id { get; set; }
+        public int FirstRandom { get; set; }
 
         private static IranianAgentsTypes Type = IranianAgentsTypes.SeniorCommander;
 
@@ -18,6 +19,22 @@ namespace SensorsProject
         {
             this.Name = name;
             this.Id = id;
+        }
+
+        public override (Sensor[], Sensor[]) Attack()
+        {
+            int secondRandom;
+            this.FirstRandom = random.Next(this.AttachingSensors.Length);
+            if (this.Counterattack % 3 == 0)
+            {
+                this.AttachingSensors[this.FirstRandom] = null;
+                do
+                {
+                    secondRandom = random.Next(this.AttachingSensors.Length);
+                } while (secondRandom == this.FirstRandom);
+                this.AttachingSensors[secondRandom] = null;
+            }
+            return (this.TypesOfWeaknesses, this.AttachingSensors);
         }
     }
 }

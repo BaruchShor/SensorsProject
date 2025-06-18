@@ -9,9 +9,7 @@ namespace SensorsProject
     internal class SensorsManager : SensorsType
     {
         public Sensor sensor { get; set; }
-        public Agent IranianAgent { get; set; }
         public SensorsTypes TypeCoose { get; set; }
-        public MannageIranianAgent AgentCreater { get; set; }
         public string UserInput { get; set; }
         public int Choice { get; set; }
         public string[] SensorsOptions { get; set; }
@@ -35,7 +33,10 @@ namespace SensorsProject
             {
                 do
                 {
-                    Console.WriteLine("^^^ Please enter your choice from the options. ^^^\n");
+                    foreach(string option in SensorsOptions)
+                    {
+                        Console.WriteLine(option);
+                    }
                     GetChoice();
                 }
                 while (!KeyTypesWords.ContainsKey(this.Choice));

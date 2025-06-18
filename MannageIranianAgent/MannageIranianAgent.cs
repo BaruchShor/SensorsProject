@@ -11,13 +11,13 @@ namespace SensorsProject
         public string Name { get; set; }
         public int Id { get; set; }
         public Agent NewAgent { get; set; }
-        public string[] Options { get; set; }
+        public string[] RankOptions { get; set; }
         public int Choice { get; set; }
-        public MannageIranianAgent(string name, int id)
+        public MannageIranianAgent()
         {
-            this.Name = name;
-            this.Id = id;
-            this.Options = new string[] { $"::: Please select the agent level for the inquiry. :::\n",
+            this.Name = GetAgentName(); ;
+            this.Id = GetAgentId(); ;
+            this.RankOptions = new string[] { $"::: Please select the agent level for the inquiry. :::\n",
                                            "! 1 ! For Private\n",
                                            "! 2 ! For squad leader\n",
                                            "! 3 ! For Commander\n",
@@ -26,12 +26,15 @@ namespace SensorsProject
 
         public Agent CreateAgent()
         {
-            Console.WriteLine($"Please select the agent level for the investigation.");
+            Console.WriteLine($"Please select the agent {this.Name} level for the investigation.");
             try
             {
                 do
                 {
-                    Console.WriteLine("^^^ Please enter your choice from the options. ^^^\n");
+                    foreach(string option in this.RankOptions)
+                    {
+                        Console.WriteLine(option);
+                    }
                     GetChoice();
 
                 } while (!this.KeyTypesWords.ContainsKey(this.Choice));
@@ -44,6 +47,19 @@ namespace SensorsProject
             this.NewAgent = this.AgentsCreaterDict[this.KeyTypesWords[this.Choice]](this.Name, this.Id);
 
             return this.NewAgent;
+        }
+
+        public string GetAgentName()
+        {
+            Console.WriteLine($"===1=== Please enter the name of the agent.\n");
+            this.Name = Console.ReadLine();
+            return this.Name;
+        }
+        public int GetAgentId()
+        {
+            Console.WriteLine($"===2=== Please enter the ID of the agent.\n");
+            this.Name = Console.ReadLine();
+            return this.Id;
         }
 
         public int GetChoice()

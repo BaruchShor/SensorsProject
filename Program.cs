@@ -10,6 +10,8 @@ namespace SensorsProject
     {
         static void Main(string[] args)
         {
+            GameSystem game = new GameSystem();
+            game.DisplaySensorsInAgentGame();
         }
     }
 }

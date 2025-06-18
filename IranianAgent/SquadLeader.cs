@@ -19,5 +19,14 @@ namespace SensorsProject
             this.Name = name;
             this.Id = id;
         }
+
+        public override (Sensor[], Sensor[]) Attack()
+        {
+            if (this.Counterattack % 3 == 0)
+            {
+                this.AttachingSensors[random.Next(this.AttachingSensors.Length)] = null;
+            }
+            return (this.TypesOfWeaknesses, this.AttachingSensors);
+        }
     }
 }
