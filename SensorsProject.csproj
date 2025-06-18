@@ -43,11 +43,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSystem\GameSystem.cs" />
+    <Compile Include="SensorsManager\SensorsManager.cs" />
+    <Compile Include="IranianAgentsType\IranianAgentsType.cs" />
+    <Compile Include="IranianAgent\Agent.cs" />
+    <Compile Include="IranianAgent\FootSoldier.cs" />
+    <Compile Include="IranianAgent\OrganizationLeader.cs" />
+    <Compile Include="IranianAgent\SeniorCommander.cs" />
+    <Compile Include="IranianAgent\SquadLeader.cs" />
+    <Compile Include="IAgent\IAgent.cs" />
+    <Compile Include="ISensor\ISensor.cs" />
+    <Compile Include="MannageIranianAgent\MannageIranianAgent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorCoupler\SensorCoupler.cs" />
+    <Compile Include="Sensors\AudioSensor.cs" />
+    <Compile Include="Sensors\LightSensor.cs" />
+    <Compile Include="Sensors\MagneticSensor.cs" />
+    <Compile Include="Sensors\MotionSensor.cs" />
+    <Compile Include="Sensors\PulseSensor.cs" />
+    <Compile Include="Sensors\Sensor.cs" />
+    <Compile Include="SensorsType\SensorsType.cs" />
+    <Compile Include="Sensors\SignalSensor.cs" />
+    <Compile Include="Sensors\ThermalSensor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

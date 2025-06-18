@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Program
+    internal class ThermalSensor : Sensor
     {
-        static void Main(string[] args)
+        private static SensorsTypes Type = SensorsTypes.ThermalSensor;
+        public ThermalSensor() : base(Type)
         {
-            GameSystem game = new GameSystem();
-            game.DisplaySensorsInAgentGame();
+
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SensorsProject
 {
-    internal class Program
+    internal class MotionSensor : Sensor
     {
-        static void Main(string[] args)
+        private static SensorsTypes Type = SensorsTypes.MotionSensor;
+        public MotionSensor() : base(Type)
         {
-            GameSystem game = new GameSystem();
-            game.DisplaySensorsInAgentGame();
+
         }
     }
 }
